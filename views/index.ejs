@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STIVE</title>
+    <%- include("partials/headerLinks.ejs") %>
+  </head>
+  <body>
+    <nav class="nav-main">
+      <div class="index-container nav-main-container__inner">
+        <div class="nav-main-logo">
+          <img src="/img/logo.svg" alt="" />
+        </div>
+        <div class="nav-main-center">
+          <div class="nav-main-center__watch nav-icon-center active">
+            <img src="/img/icons/watch-active-icon.svg" alt="" />
+          </div>
+          <a href="/profile/<%= id %>"
+            ><div class="nav-main-center__profile nav-icon-center">
+              <img src="/img/icons/profile-icon.svg" alt="" /></div
+          ></a>
+        </div>
+        <div class="nav-main-right">
+          <div class="search-form">
+            <form action="/search" method="POST">
+              <input
+                type="text"
+                name="value"
+                placeholder="Search by username"
+              />
+              <button type="submit" class="search-submit-btn">
+                <div class="nav-main-right__search nav-icon-right">
+                  <img src="/img/icons/search-icon.svg" alt="" />
+                </div>
+              </button>
+            </form>
+          </div>
+          <!-- <div class="nav-main-right__notifs nav-icon-right">
+            <img src="/img/icons/notif-icon.svg" alt="" />
+          </div> -->
+        </div>
+      </div>
+    </nav>
+    <main class="index-page-main">
+      <div class="index-container">
+        <div class="index-watch-category">
+          <h2 class="index-category-name">Entertainment</h2>
+          <div class="index-streams-row">
+            <% if(entertainmentStreams.length > 0) {%> <%
+            entertainmentStreams.forEach(function (item) { %>
+            <div class="profile-stream index-profile-stream">
+              <img
+                src="data:image/<%=item.stream.thumbnail.contentType%>;base64,
+                <%=item.stream.thumbnail.data.toString('base64')%>"
+              />
+              <div class="stream-info-container">
+                <a href="/join/<%=item._id%>" class="play-stream"
+                  ><img src="/img/icons/play-icon.svg" alt=""
+                /></a>
+                <h3 class="stream-info-title"><%=item.stream.title%></h3>
+                <p class="stream-info-byline">by - <%=item.stream.by%></p>
+                <p class="stream-info-desc"><%=item.stream.description%></p>
+              </div>
+            </div>
+            <% }); %> <%} else { %>
+          </div>
+          <p class="empty-live-category">
+            No live streams in this category right now
+          </p>
+          <% }%>
+        </div>
+        <div class="index-watch-category">
+          <h2 class="index-category-name">Education</h2>
+          <div class="index-streams-row">
+            <% if(educationStreams.length > 0) {%> <%
+            educationStreams.forEach(function (item) { %>
+            <div class="profile-stream index-profile-stream">
+              <img
+                src="data:image/<%=item.stream.thumbnail.contentType%>;base64,
+                <%=item.stream.thumbnail.data.toString('base64')%>"
+              />
+              <div class="stream-info-container">
+                <a href="/join/<%=item._id%>" class="play-stream"
+                  ><img src="/img/icons/play-icon.svg" alt=""
+                /></a>
+                <h3 class="stream-info-title"><%=item.stream.title%></h3>
+                <p class="stream-info-byline">by - <%=item.stream.by%></p>
+                <p class="stream-info-desc"><%=item.stream.description%></p>
+              </div>
+            </div>
+            <% }); %> <%} else { %>
+          </div>
+          <p class="empty-live-category">
+            No live streams in this category right now
+          </p>
+          <% }%>
+        </div>
+        <div class="index-watch-category">
+          <h2 class="index-category-name">Gaming</h2>
+          <div class="index-streams-row">
+            <% if(gamingStreams.length > 0) {%> <%
+            gamingStreams.forEach(function (item) { %>
+            <div class="profile-stream index-profile-stream">
+              <img
+                src="data:image/<%=item.stream.thumbnail.contentType%>;base64,
+                <%=item.stream.thumbnail.data.toString('base64')%>"
+              />
+              <div class="stream-info-container">
+                <a href="/join/<%=item._id%>" class="play-stream"
+                  ><img src="/img/icons/play-icon.svg" alt=""
+                /></a>
+                <h3 class="stream-info-title"><%=item.stream.title%></h3>
+                <p class="stream-info-byline">by - <%=item.stream.by%></p>
+                <p class="stream-info-desc"><%=item.stream.description%></p>
+              </div>
+            </div>
+            <% }); %> <%} else { %>
+          </div>
+          <p class="empty-live-category">
+            No live streams in this category right now
+          </p>
+          <% }%>
+        </div>
+        <div class="index-watch-category">
+          <h2 class="index-category-name">Travel</h2>
+          <div class="index-streams-row">
+            <% if(travelStreams.length > 0) {%> <%
+            travelStreams.forEach(function (item) { %>
+            <div class="profile-stream index-profile-stream">
+              <img
+                src="data:image/<%=item.stream.thumbnail.contentType%>;base64,
+                <%=item.stream.thumbnail.data.toString('base64')%>"
+              />
+              <div class="stream-info-container">
+                <a href="/join/<%=item._id%>" class="play-stream"
+                  ><img src="/img/icons/play-icon.svg" alt=""
+                /></a>
+                <h3 class="stream-info-title"><%=item.stream.title%></h3>
+                <p class="stream-info-byline">by - <%=item.stream.by%></p>
+                <p class="stream-info-desc"><%=item.stream.description%></p>
+              </div>
+            </div>
+            <% }); %> <%} else { %>
+          </div>
+          <p class="empty-live-category">
+            No live streams in this category right now
+          </p>
+          <% }%>
+        </div>
+      </div>
+    </main>
+    <script src="/js/search-form.js"></script>
+  </body>
+</html>

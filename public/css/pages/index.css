@@ -1,0 +1,44 @@
+.index-watch-category {
+  margin-bottom: 2rem;
+}
+
+.index-streams-row {
+  display: flex;
+}
+
+.index-page-main {
+  background-color: var(--color-bg-900);
+  min-height: 85vh;
+}
+
+.index-category-name {
+  font-family: "Oswald";
+  font-size: 2.2rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.empty-live-category {
+  color: var(--color-text-300);
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.index-profile-stream {
+  margin-right: 2rem;
+}
+
+.play-stream {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  right: 1.5rem;
+  top: 4px;
+}
+
+.play-stream img {
+  width: 100%;
+  height: 100%;
+}

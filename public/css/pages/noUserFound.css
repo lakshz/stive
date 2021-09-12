@@ -1,0 +1,12 @@
+.no-user-found-main {
+  min-height: 84.8vh;
+  background-color: var(--color-bg-900);
+  padding: 3rem;
+}
+
+.no-user-on-search {
+  font-family: "Open Sans";
+  font-size: 1.8rem;
+  color: #fff;
+  text-align: center;
+}

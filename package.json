@@ -1,0 +1,27 @@
+{
+  "name": "stive",
+  "version": "1.0.0",
+  "description": "This platform will help people monitize their content",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js -e js,ejs"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.13.7",
+    "mongoose-unique-validator": "^2.0.3",
+    "multer": "^1.4.3",
+    "nodemailer": "^6.6.3",
+    "validator": "^13.6.0"
+  }
+}

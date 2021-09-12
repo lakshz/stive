@@ -1,0 +1,155 @@
+.login-signup-root {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.left-col,
+.right-col {
+  width: 50%;
+  min-height: 100%;
+}
+
+.left-col {
+  background-color: var(--color-bg-900);
+  padding: 2rem;
+}
+
+.right-col {
+  background-color: var(--color-bg-700);
+}
+
+.left-col__container {
+  width: 60%;
+  margin: auto;
+  padding: 2.5rem 0;
+}
+
+.logo-login-signup {
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+.form-container input,
+.form-container label {
+  display: block;
+}
+
+.form-container .form-field {
+  margin-top: 3.5rem;
+}
+
+.form-container label {
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.form-container input {
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  font-family: "Open Sans", sans-serif;
+  background-color: #fff;
+  border-radius: var(--border-radius-2);
+  outline: none;
+  border: none;
+}
+
+.form-container input:first-child {
+  margin-bottom: 2rem;
+}
+
+.login-btn {
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.orline-container {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.or-line {
+  width: 60%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.or-line-half {
+  height: 0.7px;
+  width: 40%;
+  background-color: #bbb;
+}
+
+.or-line-word {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.3rem;
+  margin: auto;
+  color: #bbb;
+  text-transform: uppercase;
+}
+
+.social-login {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.social-icon.google {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+.social-icon.fb {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+.social-icon.fb img {
+  width: 32px;
+  height: 32px;
+}
+
+.login-to-signup {
+  font-family: "Open Sans";
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  text-align: center;
+  color: #fff;
+  margin-top: 2rem;
+}
+
+.login-to-signup a {
+  text-decoration: none;
+  color: rgb(80, 141, 255);
+}
+
+.right-col__container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.validation-error {
+  color: var(--color-error-500);
+  font-family: "Open Sans";
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+
+.login-error {
+  font-family: "Open Sans";
+  font-size: 1.4rem;
+  border-radius: 10px;
+  padding: 1.2rem 1rem;
+  background-color: var(--color-error-300);
+  color: var(--color-error-500);
+}

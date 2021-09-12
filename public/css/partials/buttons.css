@@ -1,0 +1,78 @@
+.btn {
+  text-align: center;
+  /* padding: 1.6rem 0; */
+  height: 5.6rem;
+  background: var(--color-primary-500);
+  border-radius: var(--border-radius-1);
+  text-transform: uppercase;
+  outline: none;
+  border: none;
+  display: inline-block;
+  font-family: "Open Sans";
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.btn a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: inherit;
+  height: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+.btn-large {
+  width: 30rem;
+}
+
+.btn-small {
+  width: 20rem;
+}
+
+.btn-primary {
+  background-color: var(--color-primary-500);
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-primary-500);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-primary-500);
+  border: 3px solid var(--color-primary-500);
+}
+
+.social-login-btn {
+  display: inline-block;
+  background-color: #fff;
+  width: 90%;
+  text-align: center;
+  border-radius: 100px;
+  font-family: "Open Sans";
+  font-weight: 600;
+  padding: 1rem 0;
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  position: relative;
+  cursor: pointer;
+}
+
+.founder-btn {
+  padding: 1rem 3rem;
+  border-radius: 12px;
+  color: var(--color-primary-500);
+  background-color: var(--color-secondary);
+  border: none;
+  outline: none;
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 1.6rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}

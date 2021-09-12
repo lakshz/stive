@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>No user found</title>
+    <%- include("partials/headerLinks.ejs") %>
+  </head>
+  <body>
+    <nav class="nav-main">
+      <div class="index-container nav-main-container__inner">
+        <div class="nav-main-logo">
+          <img src="/img/logo.svg" alt="" />
+        </div>
+        <div class="nav-main-center">
+          <a href="/index/<%= id %>"
+            ><div class="nav-main-center__profile nav-icon-center">
+              <img src="/img/icons/watch-icon.svg" alt="" /></div
+          ></a>
+          <a href="/profile/<%= id %>"
+            ><div class="nav-main-center__profile nav-icon-center">
+              <img src="/img/icons/profile-icon.svg" alt="" /></div
+          ></a>
+        </div>
+        <div class="nav-main-right">
+          <div class="search-form">
+            <form action="/search" method="POST">
+              <input
+                type="text"
+                name="value"
+                placeholder="Search by username"
+              />
+              <button type="submit" class="search-submit-btn">
+                <div class="nav-main-right__search nav-icon-right">
+                  <img src="/img/icons/search-icon.svg" alt="" />
+                </div>
+              </button>
+            </form>
+          </div>
+          <!-- <div class="nav-main-right__notifs nav-icon-right">
+            <img src="/img/icons/notif-icon.svg" alt="" />
+          </div> -->
+        </div>
+      </div>
+    </nav>
+    <main class="no-user-found-main">
+      <p class="no-user-on-search">No user found with this username.</p>
+    </main>
+  </body>
+</html>

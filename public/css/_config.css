@@ -1,0 +1,24 @@
+/*CSS Variables*/
+
+:root {
+  --color-text-100: #ededed;
+  --color-text-300: #cbcbcb;
+  --color-text-500: #9a9a9a;
+
+  --color-bg-500: #343434;
+  --color-bg-700: #232323;
+  --color-bg-900: #121212;
+
+  --color-secondary: #ffb599;
+  --color-primary-100: #ff9966;
+  --color-primary-300: #ff7033;
+  --color-primary-500: #ff4500;
+  --color-primary-700: #e53600;
+  --color-primary-900: #cc2900;
+
+  --border-radius-1: 16px;
+  --border-radius-2: 10px;
+
+  --color-error-500: #ff4033;
+  --color-error-300: #ffcdca;
+}

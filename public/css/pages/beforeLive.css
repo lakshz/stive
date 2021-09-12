@@ -1,0 +1,90 @@
+.go-live-nav {
+  padding: 3rem 0;
+  background-color: var(--color-bg-900);
+  text-align: center;
+}
+
+.live-stream-link {
+  padding: 1.5rem 1rem;
+  background-color: #fff;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  box-shadow: 2px 0 20px rgba(0, 0, 0, 0.2);
+  margin-bottom: 2rem;
+  font-family: "Open Sans";
+  border: 2px solid var(--color-primary-500);
+}
+
+.before-live-main {
+  background-color: var(--color-bg-900);
+  min-height: 85vh;
+  text-align: center;
+  padding-bottom: 3rem;
+}
+
+.before-live-form-container {
+  background-color: var(--color-bg-700);
+  width: 60%;
+  border-radius: 2.4rem;
+  margin: auto;
+  text-align: left;
+}
+
+.before-live-form-container {
+  padding: 3rem;
+}
+
+.before-live-form-container .form-field {
+  margin-bottom: 4rem;
+}
+
+.before-live-form-container input,
+.before-live-form-container label {
+  display: block;
+}
+
+.before-live-form-container label {
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.before-live-form-container input {
+  width: 50%;
+  padding: 1rem 1.5rem;
+  font-family: "Open Sans", sans-serif;
+  background-color: #fff;
+  border-radius: var(--border-radius-2);
+  outline: none;
+  border: none;
+}
+
+.before-live-form-container select {
+  padding: 1rem 1.5rem;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.2rem;
+  outline: none;
+  border: none;
+  width: 50%;
+  text-transform: uppercase;
+  border-radius: var(--border-radius-2);
+}
+
+.go-live-btns {
+  text-align: right;
+}
+
+.go-live-btns .go-live-btn {
+  margin-left: 2rem;
+}
+
+.payment-btn-code {
+  width: 50%;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  font-family: "Open Sans", sans-serif;
+  outline: none;
+  border: none;
+}

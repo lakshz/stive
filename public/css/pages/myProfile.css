@@ -1,0 +1,199 @@
+.my-profile-main {
+  background-color: var(--color-bg-900);
+  min-height: 85vh;
+}
+
+.profile-main__inner {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.my-user-data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.my-profile-container {
+  padding: 2rem 3.5rem;
+  background-color: var(--color-bg-700);
+  border-radius: 36px;
+  text-align: center;
+  height: 100%;
+  position: relative;
+}
+
+.my-profile-fullname {
+  font-size: 4rem;
+  font-family: "Oswald";
+  font-weight: 300;
+  color: #fff;
+}
+
+.my-profile-username {
+  font-size: 2rem;
+  font-family: "Oswald";
+  font-weight: 300;
+  margin-bottom: 3rem;
+  color: #fff;
+}
+
+.my-user-data {
+  width: 30%;
+}
+
+.my-streams {
+  width: 65%;
+}
+
+.user-profile-photo {
+  display: inline-block;
+  width: 200px;
+  border-radius: 150px;
+  height: 200px;
+}
+
+.user-profile-photo img {
+  width: 100%;
+  border-radius: 150px;
+}
+
+.my-streams-heading {
+  color: #fff;
+  font-size: 3.2rem;
+  font-family: "Oswald";
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.no-streams-available {
+  color: var(--color-text-500);
+  font-size: 2.2rem;
+  font-family: "Oswald";
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+.live-first {
+  color: var(--color-text-300);
+  font-size: 1.8rem;
+  font-family: "Oswald";
+  font-weight: 300;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.my-profile-info {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.my-profile-info-row {
+  font-family: "Oswald";
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--color-text-300);
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.all-streams-profile-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  padding: 0 5rem;
+}
+
+.profile-stream {
+  background-color: var(--color-bg-500);
+  border-radius: 24px;
+  overflow: hidden;
+  width: 280px;
+  max-height: 157.5px;
+  transition: all 0.5s;
+}
+
+.profile-stream:hover {
+  max-height: 1000px;
+  transform: translateY(-10px) scale(1.01);
+  box-shadow: 0 2px 15px rgb(59, 59, 59);
+}
+
+.profile-stream img {
+  width: 280px;
+  height: 157.5px;
+  object-fit: cover;
+  object-position: 50%;
+  border-radius: 24px;
+}
+
+.profile-profile-stream {
+  margin-bottom: 2rem;
+}
+
+.stream-info-container {
+  text-align: left;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  position: relative;
+  /* opacity: 0;
+  transform: translateY(-100%); */
+}
+
+/* .profile-stream:hover .stream-info-container {
+  transform: translateY(200%);
+  opacity: 1;
+} */
+
+.stream-info-title,
+.stream-info-byline {
+  font-family: "Oswald";
+}
+
+.stream-info-title {
+  color: var(--color-text-100);
+  font-weight: 500;
+  font-size: 1.8rem;
+}
+
+.stream-info-byline {
+  color: var(--color-text-300);
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.stream-info-desc {
+  font-family: "Open Sans";
+  color: var(--color-text-300);
+  font-weight: 400;
+  font-size: 1rem;
+  margin-top: 0.7rem;
+}
+
+.logout-btn {
+  background-color: var(--color-error-300);
+  padding: 0.8rem;
+  border-radius: 16px;
+  padding: 1rem 1.3rem;
+  margin-left: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logout-btn img {
+  width: 90%;
+}
+
+.no-streams-case {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

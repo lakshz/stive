@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Streaming | Stive | Signup"</title>
+    <%- include("partials/headerLinks.ejs") %>
+  </head>
+  <body>
+    <div class="login-signup-root">
+      <div class="left-col">
+        <div class="left-col__container">
+          <div class="logo-login-signup">
+            <a href="/home"><img src="/img/logo.svg" alt="" /></a>
+          </div>
+          <div class="form-container">
+            <form action="/signup" method="POST"  enctype="multipart/form-data">
+              <div class="form-field">
+                <label for="name">Full Name</label>
+                <input type="name" name="name" id="name" required />
+                <% if(errors) {%> <% if(errors.fullname.isError) { %>
+                <p class="validation-error"><%= errors.fullname.message %></p>
+                <% } %> <% }%>
+              </div>
+
+              <div class="form-field">
+                <label for="username">Username</label>
+                <input type="username" name="username" id="username" required />
+                <% if(errors) {%> <% if(errors.username.isError) { %>
+                <p class="validation-error"><%= errors.username.message %></p>
+                <% } %> <% } %>
+              </div>
+              <div class="form-field">
+                <label for="email">E-mail</label>
+                <input type="email" name="email" id="email" required />
+                <% if(errors) {%> <% if(errors.email.isError) { %>
+                <p class="validation-error"><%= errors.email.message %></p>
+                <% } %> <% } %>
+              </div>
+              <div class="form-field">
+                <label for="phone">Phone</label>
+                <input type="phone" name="phone" id="phone" required />
+                <% if(errors) {%> <% if(errors.phone.isError) { %>
+                <p class="validation-error"><%= errors.phone.message %></p>
+                <% } %> <% } %>
+              </div>
+              <div class="form-field">
+                <label for="password">Password</label>
+                <input
+                  type="password"
+                  name="password"
+                  id=" password"
+                  required
+                />
+                <% if(errors) {%> <% if(errors.password.isError) { %>
+                <p class="validation-error"><%= errors.password.message %></p>
+                <% } %> <% } %>
+              </div>
+              <div class="form-field">
+                <label for="img">Profile Photo</label>
+                <input
+                  type="file"
+                  name="img"
+                  required
+                  accept="image/png, image/gif, image/jpeg"
+                />
+              </div>
+              <div class="login-btn">
+                <button type="submit" class="btn btn-large btn-primary">
+                  Sign up
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="login-to-signup">
+            <p>Already have an account? <a href="/login">Log in</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="right-col">
+        <div class="right-col__container">
+          <img
+            src="/img/login-illu.svg"
+            alt="Stive Live Content creation Monitize"
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

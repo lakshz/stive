@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Streaming | Stive | Login"</title>
+    <%- include("partials/headerLinks.ejs") %>
+  </head>
+  <body>
+    <div class="login-signup-root">
+      <div class="left-col">
+        <div class="left-col__container">
+          <div class="logo-login-signup">
+            <a href="/home"><img src="/img/logo.svg" alt="" /></a>
+          </div>
+          <div class="email-sent-info">
+            <h2 class="email-verification-heading">Verify your Email</h2>
+            <p class="email-verification-text">
+              Click on the link sent to <br />
+              <span class="email-verification-id"><%= mail %></span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="right-col">
+        <div class="right-col__container">
+          <img
+            src="/img/login-illu.svg"
+            alt="Stive Live Content creation Monitize"
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

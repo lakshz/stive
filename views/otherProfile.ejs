@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <%- include("partials/headerLinks.ejs") %>
+  </head>
+  <body>
+    <nav class="nav-main">
+      <div class="index-container nav-main-container__inner">
+        <div class="nav-main-logo">
+          <img src="/img/logo.svg" alt="stive" />
+        </div>
+        <div class="nav-main-center">
+          <a href="/index/<%=myid%>">
+            <div class="nav-main-center__watch nav-icon-center">
+              <img src="/img/icons/watch-icon.svg" alt="" /></div
+          ></a>
+          <a href="/profile/<%=myid%>"
+            ><div class="nav-main-center__profile nav-icon-center">
+              <img src="/img/icons/profile-icon.svg" alt="" /></div
+          ></a>
+        </div>
+        <div class="nav-main-right">
+          <div class="search-form">
+            <form action="/search" method="POST">
+              <input
+                type="text"
+                name="value"
+                placeholder="Search by username"
+              />
+              <button type="submit" class="search-submit-btn">
+                <div class="nav-main-right__search nav-icon-right">
+                  <img src="/img/icons/search-icon.svg" alt="" />
+                </div>
+              </button>
+            </form>
+          </div>
+          <div class="nav-main-right__notifs nav-icon-right">
+            <img src="/img/icons/notif-icon.svg" alt="" />
+          </div>
+          <a href="/logout" class="logout-btn">
+            <img src="/img/icons/logout-icon.svg" alt="" />
+          </a>
+        </div>
+      </div>
+    </nav>
+    <main class="my-profile-main">
+      <div class="index-container profile-main__inner">
+        <div class="my-user-data my-profile-container">
+          <div class="user-profile-photo my-profile-photo">
+            <img
+              src="data:image/<%=img.contentType%>;base64,
+                  <%=img.data.toString('base64')%>"
+            />
+          </div>
+          <div class="my-profile-fullname">
+            <p><%=fullname%></p>
+          </div>
+          <div class="my-profile-username">
+            <p>@<%=username%></p>
+          </div>
+          <div class="my-profile-info">
+            <div class="my-profile-info-row">
+              <p class="my-profile-info-key">Followers</p>
+              <p class="my-profile-info-value"><%=followers%></p>
+            </div>
+            <div class="my-profile-info-row">
+              <p class="my-profile-info-key">Following</p>
+              <p class="my-profile-info-value"><%=following%></p>
+            </div>
+            <div class="my-profile-info-row">
+              <p class="my-profile-info-key">Total Streams</p>
+              <p class="my-profile-info-value"><%=streams.length%></p>
+            </div>
+          </div>
+          <a href="/follow/<%=otherid%>"
+            ><button class="btn btn-small btn-secondary go-live-btn">
+              Follow
+            </button></a
+          >
+        </div>
+        <div class="my-streams my-profile-container">
+          <% if(streams.length === 0) { %>
+          <div class="no-streams-case">
+            <div class="my-profile-illu">
+              <img src="/img/otherProfile.svg" alt="" />
+            </div>
+            <h2 class="my-streams-heading" style="margin-top: 2rem">
+              <%=fullname%> is not streaming at the moment
+            </h2>
+          </div>
+          <% } else {%>
+          <div class="have-streams-case">
+            <h2 class="my-streams-heading">Streams</h2>
+            <div class="all-streams-profile-container">
+              <% streams.forEach(function (item) { %>
+              <div class="profile-stream profile-profile-stream">
+                <img
+                  src="data:image/<%=item.stream.thumbnail.contentType%>;base64,
+                  <%=item.stream.thumbnail.data.toString('base64')%>"
+                />
+                <div class="stream-info-container">
+                  <h3 class="stream-info-title"><%=item.stream.title%></h3>
+                  <p class="stream-info-byline">by - <%=username%></p>
+                  <p class="stream-info-desc"><%=item.stream.description%></p>
+                </div>
+              </div>
+              <% }); %>
+            </div>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
