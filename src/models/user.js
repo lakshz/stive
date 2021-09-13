@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
-const uniqueValidator = require("mongoose-unique-validator");
+// const uniqueValidator = require("mongoose-unique-validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -11,9 +11,16 @@ const userSchema = mongoose.Schema({
   },
   username: {
     type: String,
+    // validate: {
+    //   validator: async function (username) {
+    //     const count = await mongoose.models.User.countDocuments({
+    //       username,
+    //     });
+    //     return !count;
+    //   },
+    //   message: "Username already exists",
+    // },
     required: [true, "Username is required"],
-    unique: true,
-    index: true,
   },
   email: {
     type: String,
@@ -22,8 +29,15 @@ const userSchema = mongoose.Schema({
         throw new Error("Email is not valid");
       }
     },
-    index: true,
-    unique: true,
+    // validate: {
+    //   validator: async function (email) {
+    //     const emailCount = await mongoose.models.User.countDocuments({
+    //       email,
+    //     });
+    //     return !emailCount;
+    //   },
+    //   message: "Email already exists",
+    // },
     required: [true, "Email is required"],
   },
   phone: {
@@ -74,8 +88,6 @@ const userSchema = mongoose.Schema({
         description: {
           type: String,
           required: [true, "Description is required"],
-          // minLength: [100, "Title should be between 100 and 300 characters"],
-          // maxLength: [300, "Title should be between 100 and 300 characters"],
         },
         src: {
           type: String,
@@ -119,7 +131,7 @@ userSchema.pre("save", async function (next) {
   }
 });
 
-userSchema.plugin(uniqueValidator, { message: "{PATH} already exists" });
+// userSchema.plugin(uniqueValidator, { message: "{PATH} already exists" });
 
 const User = new mongoose.model("User", userSchema);
 
