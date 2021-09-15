@@ -38,9 +38,9 @@
               </button>
             </form>
           </div>
-          <div class="nav-main-right__notifs nav-icon-right">
+          <!-- <div class="nav-main-right__notifs nav-icon-right">
             <img src="/img/icons/notif-icon.svg" alt="" />
-          </div>
+          </div> -->
           <a href="/logout" class="logout-btn">
             <img src="/img/icons/logout-icon.svg" alt="" />
           </a>
@@ -76,11 +76,12 @@
               <p class="my-profile-info-value"><%=streams.length%></p>
             </div>
           </div>
-          <a href="/follow/<%=otherid%>"
-            ><button class="btn btn-small btn-secondary go-live-btn">
-              Follow
-            </button></a
+          <button
+            class="btn btn-small btn-secondary go-live-btn"
+            id="follow-btn"
           >
+            Follow
+          </button>
         </div>
         <div class="my-streams my-profile-container">
           <% if(streams.length === 0) { %>
@@ -115,5 +116,27 @@
         </div>
       </div>
     </main>
+    <script>
+      // const followBtn = document.getElementById("follow-btn");
+      // if (followBtn.innerText === "Follow") {
+      //   followBtn.addEventListener("click", async () => {
+      //     followBtn.innerText = "Following";
+      //     followBtn.classList.remove("btn-secondary");
+      //     followBtn.classList.add("btn-primary");
+      //     const response = await fetch("/profile/<%=otherid%>/follow", {
+      //       method: "PATCH",
+      //       headers: {
+      //         "Content-type": "application/json",
+      //       },
+      //       body: JSON.stringify({
+      //         otherid: "<%=otherid%>",
+      //         myid: "<%=myid%>",
+      //       }),
+      //     });
+      //     const result = await response.json();
+      //     console.log(result);
+      //   });
+      // }
+    </script>
   </body>
 </html>

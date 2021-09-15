@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="https://cdn.dyte.in/lib/dyte.css" />
-    <title>Example App</title>
+    <title>STIVE | Live Stream</title>
+    <%- include("partials/headerLinks.ejs") %>
   </head>
   <body>
     <div id="root"></div>
@@ -20,7 +21,8 @@
       meeting.init("root");
 
       meeting.on(meeting.Events.meetingEnded, () => {
-        window.location.replace("http://localhost/profile/<%=id%>");
+        const full = location.protocol + "//" + location.host;
+        window.location.replace(`${full}/profile/<%=id%>`);
       });
     </script>
   </body>

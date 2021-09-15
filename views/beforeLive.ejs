@@ -15,6 +15,13 @@
     </nav>
     <main class="before-live-main">
       <div class="before-live-form-container">
+        <div class="before-live-payment-message">
+          <p>
+            <span>Note:</span> Amount will be sent to you within 48 hours after
+            cutting 10% commission. Our customer helpline will contact you
+            through mail/phone to collect your bank details.
+          </p>
+        </div>
         <form
           action="/liveInfo/<%=id%>?meetingId=<%=meetingId%>&roomName=<%=roomName%>"
           method="POST"
@@ -58,7 +65,7 @@
               max="500"
             />
           </div>
-          <div class="form-field">
+          <!-- <div class="form-field">
             <label for="paymentButton"
               >Paste Payment Button Code from Razorpay (Most pereferably)</label
             >
@@ -69,13 +76,13 @@
               cols="30"
               rows="3"
             ></textarea>
-          </div>
-          <div class="live-stream-link">
+          </div> -->
+          <!-- <div class="live-stream-link">
             ADD THIS LINK AS REDIRECT URL ON THE PAYMENT BUTTON
             <p>
               http://localhost/participant/<%=id%>?meetingId=<%=meetingId%>&roomName=<%=roomName%>
             </p>
-          </div>
+          </div> -->
           <div class="go-live-btns">
             <button
               type="button"

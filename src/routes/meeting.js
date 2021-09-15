@@ -1,12 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
+const User = require("../models/user");
 const orgId = process.env.DYTE_ORG_ID;
 const apiKey = process.env.DYTE_API_KEY;
 const baseURL = process.env.DYTE_API_BASE_URL;
 const auth = require("../middleware/auth");
 router.get("/host/:id", auth, async function (req, res, next) {
   //1. Get the meeting ID from the request
+
   const meetingId = req.query.meetingId;
   const roomName = req.query.roomName;
 
@@ -17,7 +19,7 @@ router.get("/host/:id", auth, async function (req, res, next) {
     {
       clientSpecificId: Math.random().toString(36).substring(7),
       userDetails: {
-        name: "Host" + Math.random().toString(36).substring(2),
+        name: req.user.fullname,
       },
       roleName: "host",
     },
@@ -52,7 +54,7 @@ router.get("/participant/:id", auth, async function (req, res, next) {
     {
       clientSpecificId: Math.random().toString(36).substring(7),
       userDetails: {
-        name: "Participant" + Math.random().toString(36).substring(2),
+        name: req.user.fullname,
       },
     },
     {

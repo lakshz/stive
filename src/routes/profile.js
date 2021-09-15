@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const auth = require("../middleware/auth");
-const User = require("../models/user.js");
+const User = require("../models/user");
 
 router.get("/:id", auth, async (req, res) => {
   try {
@@ -34,5 +34,28 @@ router.get("/:id", auth, async (req, res) => {
     });
   }
 });
+
+// router.patch("/:id/follow", auth, async (req, res) => {
+//   try {
+//     // const userFollow = await User.findOne({ _id: req.body.otherid });
+//     // const userFollowing = await User.findOne({ _id: req.body.myid });
+//     // userFollow.follower++;
+//     // userFollowing.following++;
+//     // await userFollow.save();
+//     // await userFollowing.save();
+//     await User.findOneAndUpdate(
+//       { _id: req.body.otherid },
+//       { $inc: { follower: 1 } }
+//     );
+//     await User.findOneAndUpdate(
+//       { _id: req.body.myid },
+//       { $inc: { following: 1 } }
+//     );
+//     res.send({ followersUpdated: true });
+//   } catch (e) {
+//     res.send({ followersUpdated: false });
+//     console.log(e);
+//   }
+// });
 
 module.exports = router;

@@ -89,13 +89,14 @@ const userSchema = mongoose.Schema({
           type: String,
           required: [true, "Description is required"],
         },
-        src: {
+        meetingId: {
           type: String,
-          required: true,
         },
-        paymentId: {
+        roomName: {
           type: String,
-          required: true,
+        },
+        link: {
+          type: String,
         },
         thumbnail: {
           data: Buffer,

@@ -28,6 +28,7 @@ app.use("/signup", require("./routes/signup"));
 app.use("/login", require("./routes/login"));
 app.use("/", require("./routes/meeting"));
 app.use("/profile", require("./routes/profile"));
+app.use("/payment", require("./routes/payment"));
 
 app.get("/home", (req, res) => {
   res.render("landing");
@@ -37,7 +38,7 @@ app.get("/beforeLive/:id", auth, async (req, res) => {
   const resp = await axios.post(
     `${baseURL}/v1/organizations/${orgId}/meeting`,
     {
-      title: "New test meeting",
+      title: `Live Stream on STIVE by ${req.user.fullname}`,
     },
     {
       headers: {
@@ -65,17 +66,17 @@ app.post(
     try {
       const user = await User.findOne({ _id: req.params.id });
       const username = user.username;
-      const srcStart = req.body.paymentButton.indexOf(`https`);
-      const srcEnd = req.body.paymentButton.indexOf(
-        `" data-payment_button_id="`
-      );
-      const paymentIdStart = req.body.paymentButton.indexOf(`"pl_`);
-      const paymentIdEnd = req.body.paymentButton.indexOf(`" async`);
-      const src = req.body.paymentButton.slice(srcStart, srcEnd);
-      const paymentId = req.body.paymentButton.slice(
-        paymentIdStart + 1,
-        paymentIdEnd
-      );
+      // const srcStart = req.body.paymentButton.indexOf(`https`);
+      // const srcEnd = req.body.paymentButton.indexOf(
+      //   `" data-payment_button_id="`
+      // );
+      // const paymentIdStart = req.body.paymentButton.indexOf(`"pl_`);
+      // const paymentIdEnd = req.body.paymentButton.indexOf(`" async`);
+      // const src = req.body.paymentButton.slice(srcStart, srcEnd);
+      // const paymentId = req.body.paymentButton.slice(
+      //   paymentIdStart + 1,
+      //   paymentIdEnd
+      // );
 
       const newLive = {
         title: req.body.title,
@@ -87,8 +88,11 @@ app.post(
           ),
           contentType: "image/png",
         },
-        src: src,
-        paymentId: paymentId,
+        meetingId: req.query.meetingId,
+        roomName: req.query.roomName,
+        link: `/participant/${req.params.id}?meetingId=${req.query.meetingId}&roomName=${req.query.roomName}`,
+        // src: src,
+        // paymentId: paymentId,
         amount: req.body.amount,
         category: req.body.category,
       };
@@ -175,6 +179,7 @@ app.get("/join/:id", auth, async (req, res) => {
     });
     res.render("join", {
       stream: requiredStream,
+      done: req.query.done,
     });
   } catch (e) {
     res.status(501).send(e);

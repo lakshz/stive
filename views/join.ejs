@@ -31,6 +31,7 @@
           </div>
         </div>
         <div class="join-payment-column">
+          <% if (done == 0) { %>
           <div class="payment-heading">
             <p>Payment</p>
           </div>
@@ -40,13 +41,9 @@
               <%=stream.stream.amount%><span class="payment-currency">Rs</span>
             </p>
           </div>
-          <form style="margin-bottom: 2rem">
-            <script
-              src="<%=stream.stream.src%>"
-              data-payment_button_id="<%=stream.stream.paymentId%>"
-              async
-            ></script>
-          </form>
+          <button type="button" class="btn btn-small btn-primary pay-watch-btn">
+            Pay and Watch
+          </button>
           <button
             type="button"
             onclick="window.history.back();"
@@ -54,8 +51,74 @@
           >
             Discard
           </button>
+          <% } else { %>
+          <div class="payment-heading" style="margin-bottom: 2rem; color: #fff">
+            <p>Congratulations!</p>
+            <p>Payment is Successful</p>
+          </div>
+          <a href="<%=stream.stream.link%>"
+            ><button type="button" class="btn btn-small btn-primary join-btn">
+              Join
+            </button></a
+          >
+          <% } %>
         </div>
       </div>
     </main>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+      const payBtn = document.querySelector(".pay-watch-btn");
+      payBtn.addEventListener("click", async (e) => {
+        const response = await fetch("/payment/create", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            amount: "<%=stream.stream.amount%>",
+          }),
+        });
+        const orderData = await response.json();
+        const options = {
+          key: "rzp_test_8YwDexfcyYzUYC", // Enter the Key ID generated from the Dashboard
+          amount: orderData.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+          currency: "INR",
+          name: "STIVE",
+          description:
+            "Watch <%=stream.stream.title%> by <%=stream.stream.by%> on STIVE",
+          image: "/img/Logo.svg",
+          order_id: orderData.id,
+          handler: async function (response) {
+            window.location.replace("/join/<%=stream._id%>?done=1");
+            // const result = await fetch("/payment/verify", {
+            //   method: "POST",
+            //   headers: {
+            //     "Content-type": "application/json",
+            //   },
+            //   body: JSON.stringify({ response, orderId: orderData.id }),
+            // });
+            // const data = await result.json();
+            // console.log(data);
+          },
+          theme: {
+            color: "#121212",
+          },
+        };
+
+        const rzp1 = new Razorpay(options);
+        rzp1.open();
+        e.preventDefault();
+      });
+
+      rzp1.on("payment.failed", function (response) {
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+      });
+    </script>
   </body>
 </html>
