@@ -20,7 +20,19 @@
       });
       meeting.init("root");
 
-      meeting.on(meeting.Events.meetingEnded, () => {
+      meeting.on(meeting.Events.meetingEnded, async () => {
+        const blob = await fetch("/end", {
+          method: "PATCH",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({
+            userId: "<%=id%>",
+            roomName: "<%=roomName%>",
+          }),
+        });
+        const data = blob.json();
+        console.log(data);
         const full = location.protocol + "//" + location.host;
         window.location.replace(`${full}/profile/<%=id%>`);
       });

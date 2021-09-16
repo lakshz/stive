@@ -77,4 +77,18 @@ router.get("/participant/:id", auth, async function (req, res, next) {
   });
 });
 
+router.patch("/end", async (req, res) => {
+  try {
+    const userStreaming = await User.findOne({ _id: req.body.userId });
+    const requiredStream = userStreaming.streams.find(
+      (item) => item.stream.roomName == req.body.roomName
+    );
+    requiredStream.stream.isLive = false;
+    await userStreaming.save();
+    res.send({ meetingEnded: true });
+  } catch (e) {
+    console.log(e);
+    res.send({ meetingEnded: false });
+  }
+});
 module.exports = router;

@@ -81,6 +81,7 @@ app.post(
       const newLive = {
         title: req.body.title,
         by: username,
+        isLive: true,
         description: req.body.description,
         thumbnail: {
           data: fs.readFileSync(
@@ -136,21 +137,21 @@ app.get("/index/:id", auth, async (req, res) => {
     travelStreams = [];
   allStreams.forEach((streamArray) => {
     const entertainments = streamArray.filter(
-      (item) => item.stream.category === "Entertainment"
+      (item) => item.stream.category === "Entertainment" && item.stream.isLive
     );
     entertainmentStreams = [...entertainmentStreams, ...entertainments];
     const educations = streamArray.filter(
-      (item) => item.stream.category === "Education"
+      (item) => item.stream.category === "Education" && item.stream.isLive
     );
     educationStreams = [...educationStreams, ...educations];
 
     const travels = streamArray.filter(
-      (item) => item.stream.category === "Travel"
+      (item) => item.stream.category === "Travel" && item.stream.isLive
     );
     travelStreams = [...travelStreams, ...travels];
 
     const gamings = streamArray.filter(
-      (item) => item.stream.category === "Gaming"
+      (item) => item.stream.category === "Gaming" && item.stream.isLive
     );
     gamingStreams = [...gamingStreams, ...gamings];
   });

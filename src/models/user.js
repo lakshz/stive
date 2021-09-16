@@ -50,14 +50,20 @@ const userSchema = mongoose.Schema({
     data: Buffer,
     contentType: String,
   },
-  follower: {
-    type: Number,
-    default: 0,
-  },
-  following: {
-    type: Number,
-    default: 0,
-  },
+  follower: [
+    {
+      userId: {
+        type: String,
+      },
+    },
+  ],
+  following: [
+    {
+      userId: {
+        type: String,
+      },
+    },
+  ],
   password: {
     type: String,
     minLength: [5, "Password should be of minimum 5 characters"],
@@ -77,13 +83,14 @@ const userSchema = mongoose.Schema({
           type: String,
           required: [true, "Title is required"],
         },
+        isLive: {
+          type: Boolean,
+        },
         by: {
           type: String,
         },
         amount: {
           type: Number,
-          min: [30, "Minimum 10Rs amount is required"],
-          max: [500, "Maximum 500Rs amount is possible"],
         },
         description: {
           type: String,

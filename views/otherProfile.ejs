@@ -65,23 +65,29 @@
           <div class="my-profile-info">
             <div class="my-profile-info-row">
               <p class="my-profile-info-key">Followers</p>
-              <p class="my-profile-info-value"><%=followers%></p>
+              <p class="my-profile-info-value"><%=followers.length%></p>
             </div>
             <div class="my-profile-info-row">
               <p class="my-profile-info-key">Following</p>
-              <p class="my-profile-info-value"><%=following%></p>
+              <p class="my-profile-info-value"><%=following.length%></p>
             </div>
             <div class="my-profile-info-row">
               <p class="my-profile-info-key">Total Streams</p>
               <p class="my-profile-info-value"><%=streams.length%></p>
             </div>
           </div>
+          <% if(isFollowing) { %>
+          <button class="btn btn-small btn-primary go-live-btn" id="follow-btn">
+            Following
+          </button>
+          <%} else {%>
           <button
             class="btn btn-small btn-secondary go-live-btn"
             id="follow-btn"
           >
             Follow
           </button>
+          <%}%>
         </div>
         <div class="my-streams my-profile-container">
           <% if(streams.length === 0) { %>
@@ -117,26 +123,31 @@
       </div>
     </main>
     <script>
-      // const followBtn = document.getElementById("follow-btn");
-      // if (followBtn.innerText === "Follow") {
-      //   followBtn.addEventListener("click", async () => {
-      //     followBtn.innerText = "Following";
-      //     followBtn.classList.remove("btn-secondary");
-      //     followBtn.classList.add("btn-primary");
-      //     const response = await fetch("/profile/<%=otherid%>/follow", {
-      //       method: "PATCH",
-      //       headers: {
-      //         "Content-type": "application/json",
-      //       },
-      //       body: JSON.stringify({
-      //         otherid: "<%=otherid%>",
-      //         myid: "<%=myid%>",
-      //       }),
-      //     });
-      //     const result = await response.json();
-      //     console.log(result);
-      //   });
-      // }
+      const followBtn = document.getElementById("follow-btn");
+      console.log(followBtn.innerText);
+      followBtn.addEventListener("click", async () => {
+        if (followBtn.innerText === "FOLLOW") {
+          followBtn.innerText = "Following";
+          followBtn.classList.remove("btn-secondary");
+          followBtn.classList.add("btn-primary");
+          try {
+            const response = await fetch("/profile/<%=otherid%>/follow", {
+              method: "PATCH",
+              headers: {
+                "Content-type": "application/json",
+              },
+              body: JSON.stringify({
+                otherid: "<%=otherid%>",
+                myid: "<%=myid%>",
+              }),
+            });
+            const result = await response.json();
+            console.log(result);
+          } catch (e) {
+            console.log(e);
+          }
+        } else return;
+      });
     </script>
   </body>
 </html>
