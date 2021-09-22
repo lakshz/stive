@@ -42,8 +42,8 @@ const userSchema = mongoose.Schema({
   },
   phone: {
     type: String,
-    minLength: [10, "Phone number is not valid"],
-    maxLength: [10, "Phone number is not valid"],
+    // minLength: [10, "Phone number is not valid"],
+    // maxLength: [10, "Phone number is not valid"],
     required: [true, "Phone number is required"],
   },
   img: {
